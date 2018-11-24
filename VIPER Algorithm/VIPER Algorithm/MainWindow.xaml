@@ -1,0 +1,33 @@
+﻿<Window x:Class="VIPER_Algorithm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VIPER_Algorithm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0.15"/>
+                <GradientStop Color="#FFFF1D1D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="File_Path_Label" Content="Path of File" HorizontalAlignment="Left" Height="26" Margin="103,411,0,0" VerticalAlignment="Top" Width="478" Background="White"/>
+        <ScrollViewer x:Name="Result_Box" HorizontalAlignment="Left" Height="272" Margin="20,110,0,0" VerticalAlignment="Top" Width="499" Background="White" Content="Mining results will appear here" FontSize="14"/>
+        <TextBox x:Name="Minimum_Support_Label" HorizontalAlignment="Left" Height="27" Margin="539,286,0,0" TextWrapping="Wrap" Text="MinimumSupport" VerticalAlignment="Top" Width="124" FontSize="14"/>
+        <Button x:Name="Run_Viper_Button" Content="Run VIPER" HorizontalAlignment="Left" Margin="570,345,0,0" VerticalAlignment="Top" Width="93" Click="Run_Viper_Button_Click" Height="26"/>
+        <Button x:Name="Export_Button" Content="Export" HorizontalAlignment="Left" Margin="595,411,0,0" VerticalAlignment="Top" Width="68" Click="Export_Button_Click" Height="26"/>
+        <Button x:Name="Load_File_Button" Content="Load File" HorizontalAlignment="Left" Margin="20,411,0,0" VerticalAlignment="Top" Width="71" Click="Load_File_Button_Click" Height="26" RenderTransformOrigin="0.521,1.077"/>
+        <Label x:Name="Title_Label" Content="VIPER Algorithm" HorizontalAlignment="Left" Height="61" Margin="180,15,0,0" VerticalAlignment="Top" Width="274" FontSize="36" Background="{x:Null}">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF00FFE8" Offset="0.7"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="Frequent_Patterns_Label" Content="FPs = 0" HorizontalAlignment="Left" Height="30" Margin="539,209,0,0" VerticalAlignment="Top" Width="124" Background="White" RenderTransformOrigin="0.544,-0.1" IsEnabled="False" FontSize="14"/>
+        <Label x:Name="Time_Taken_Label" Content="Time Taken: &#xA;0 ms" HorizontalAlignment="Left" Height="50" Margin="539,119,0,0" VerticalAlignment="Top" Width="124" Background="White" FontSize="14" IsEnabled="False"/>
+    </Grid>
+</Window>

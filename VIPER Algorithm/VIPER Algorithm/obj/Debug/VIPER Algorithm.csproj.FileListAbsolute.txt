@@ -1,0 +1,15 @@
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm.csprojResolveAssemblyReference.cache
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\MainWindow.g.cs
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\App.g.cs
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm_MarkupCompile.cache
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm_MarkupCompile.lref
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\bin\Debug\VIPER Algorithm.exe.config
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\bin\Debug\VIPER Algorithm.exe
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\bin\Debug\VIPER Algorithm.pdb
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\MainWindow.baml
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm.g.resources
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER_Algorithm.Properties.Resources.resources
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm.csproj.GenerateResource.Cache
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm.exe
+C:\Users\Raymond\Documents\University\CPSC473\VIPER Algorithm\VIPER Algorithm\obj\Debug\VIPER Algorithm.pdb
