@@ -8,17 +8,23 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Diagnostics;
 
+/*
+ * @Author Raymond Strohschein
+ * UNBC Winter 2018 Semester
+ * CPSC473 Final Project
+ */
+
 namespace VIPER_Algorithm
 {
     //This class runs the algorithm
     class Viper
     {
+        private int minimumSupportPercent, minimumSupport, numTransactions, numFrequentPatterns;
+        private long totalTime, minutes, seconds;
         private StreamReader reader;
         private MainWindow mw;
         private String path;
-        private int minimumSupportPercent, minimumSupport, numTransactions, numFrequentPatterns;
         private Stopwatch sw;
-        private long totalTime;
         private DataBase database, currentItemSets;
         private List<String> frequentItemSets;
         public Viper(MainWindow mainWindow, String p, int s)
@@ -53,8 +59,17 @@ namespace VIPER_Algorithm
             }
             sw.Stop();
             totalTime = sw.ElapsedMilliseconds;
+            minutes = totalTime / 1000 / 60;
+            seconds = totalTime / 1000 % 60;
             mw.Frequent_Patterns_Label.Content = "FPs = "+numFrequentPatterns;
-            mw.Time_Taken_Label.Content = "Time Taken:\n"+totalTime+" ms";
+            if (totalTime > 999)
+            {
+                mw.Time_Taken_Label.Content = "Time Taken:\n" + minutes+ " min "+seconds+" s";
+            }
+            else
+            {
+                mw.Time_Taken_Label.Content = "Time Taken:\n" + totalTime + " ms";
+            }
             PrintToResultBox();
         }
 
@@ -205,17 +220,22 @@ namespace VIPER_Algorithm
         //Print the results to the viewbox
         public void PrintToResultBox()
         {
-            /*frequentItemSets.Insert(0, "FPs = " + numFrequentPatterns);
-            frequentItemSets.Insert(0, "Time taken: " + totalTime + " ms");
-            frequentItemSets.Insert(0, "Running VIPER Algorithm on a Minimum Support of " + minimumSupportPercent + "% and " + numTransactions + " Transactions");
-            */
             Print("Running VIPER Algorithm on a Minimum Support of " + minimumSupportPercent + "% and " + numTransactions + " Transactions");
-            Print("Time taken: " + totalTime + " ms");
-            Print("FPs = " + numFrequentPatterns);
-            /*foreach (String s in frequentItemSets)
+            frequentItemSets.Insert(0, "FPs = " + numFrequentPatterns);
+            if (totalTime > 999)
             {
-                mw.Result_Box.Content += s + "\n";
-            }*/
+                Print("Time taken: " + minutes + " min " + seconds + " s");
+                frequentItemSets.Insert(0, "Time taken: " + minutes + " min " + seconds + " s");
+            }
+            else
+            {
+                Print("Time taken: " + totalTime + " ms");
+                frequentItemSets.Insert(0, "Time taken: " + totalTime + " ms");
+            }
+            Print("FPs = " + numFrequentPatterns);
+            frequentItemSets.Insert(0, "Running VIPER Algorithm on a Minimum Support of " + minimumSupportPercent + "% and " + numTransactions + " Transactions");
+            //Send the data over to the main window
+            mw.SetFrequentItemSets(frequentItemSets);
         }
     }
 }

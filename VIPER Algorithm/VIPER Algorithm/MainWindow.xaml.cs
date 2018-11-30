@@ -15,16 +15,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * @Author Raymond Strohschein
+ * UNBC Winter 2018 Semester
+ * CPSC473 Final Project
+ */
+
 namespace VIPER_Algorithm
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private List<String> frequentItemSets;
         public MainWindow()
         {
             InitializeComponent();
+            frequentItemSets = null;
         }
 
         private void Load_File_Button_Click(object sender, RoutedEventArgs e)
@@ -49,7 +54,6 @@ namespace VIPER_Algorithm
             int minSup = 0;
             this.Result_Box.Content = ("");
             //Logic to check if it's a .txt file for sure, and if its the correct formatting
-            //Logic to load the Bank Line Up Window with the class Simulation
             try
             {
                 path = (String)File_Path_Label.Content;
@@ -60,7 +64,7 @@ namespace VIPER_Algorithm
                 }
                 else if(path == null || !path.EndsWith(".txt"))
                 {
-                    MessageBox.Show("Error, must select a text file");
+                    MessageBox.Show("Error, must select a database text file");
                 }
                 else
                 {
@@ -69,40 +73,46 @@ namespace VIPER_Algorithm
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show("Error, check Minimum Support or input file format");
             }
+        }
+
+        public void SetFrequentItemSets(List<String> l)
+        {
+            frequentItemSets = l;
         }
 
         private void Export_Button_Click(object sender, RoutedEventArgs e)
         {
             //Open a file dialog and get the user to save it
-            try
+            if (frequentItemSets == null)
             {
-                SaveFileDialog saveFile = new SaveFileDialog
-                {
-                    Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
-                };
-                saveFile.ShowDialog();
-
-                string sim = (String)Result_Box.Content;
-
-                string[] resbox = sim.Split('\n');
-
-                if (saveFile.FileName != "")
-                {
-                    StreamWriter writer = new StreamWriter(saveFile.OpenFile());
-                    for (int i = 0; i < resbox.Length; i++)
-                    {
-                        writer.WriteLine(resbox[i]);
-                    }
-
-                    writer.Dispose();
-                    writer.Close();
-                }
+                MessageBox.Show("Error, no frequent itemsets found!");
             }
-            catch (Exception error)
+            else
             {
-                //Nothing in the simulation
+                try
+                {
+                    SaveFileDialog saveFile = new SaveFileDialog
+                    {
+                        Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
+                    };
+                    saveFile.ShowDialog();
+                    if (saveFile.FileName != "")
+                    {
+                        StreamWriter writer = new StreamWriter(saveFile.OpenFile());
+                        foreach (String s in frequentItemSets)
+                        {
+                            writer.WriteLine(s);
+                        }
+                        writer.Dispose();
+                        writer.Close();
+                    }
+                }
+                catch (Exception error)
+                {
+                    //Nothing in the simulation
+                }
             }
         }
     }

@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * @Author Raymond Strohschein
+ * UNBC Winter 2018 Semester
+ * CPSC473 Final Project
+ */
+
 namespace VIPER_Algorithm
 {
     //This class is dedicated to containing all the itemsets seen
@@ -20,15 +26,6 @@ namespace VIPER_Algorithm
         {
             //Add the item to the database. Checking will be done in the VIPER class
             database.Add(i);
-        }
-
-        public void Remove(String s)
-        {
-            //If the database contains the item
-            if (Contains(s))
-            {
-                database.Remove(Get(s));
-            }
         }
 
         //Filter the database and remove infrequent itemsets
@@ -54,6 +51,7 @@ namespace VIPER_Algorithm
             }
         }
 
+        //Sort the database, not much to note
         public void Sort()
         {
             database.Sort();
@@ -83,6 +81,7 @@ namespace VIPER_Algorithm
             return item;
         }
 
+        //Get an element at the index i
         public ItemSet Get(int i)
         {
             return database.ElementAt(i);
@@ -104,7 +103,7 @@ namespace VIPER_Algorithm
             return isContained;
         }
 
-        //Return the database to the user if necessary
+        //Return the database to the user
         public List<ItemSet> GetDataBase()
         {
             return database;
